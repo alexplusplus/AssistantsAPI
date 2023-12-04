@@ -2,7 +2,6 @@ import OpenAI from 'openai';
 import { sleep } from 'openai/core';
 
 export default defineEventHandler(async (event) => {
-    //const {words, text, replace, lang, api_key, gpt_model} = await readBody(event);
     
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -39,17 +38,13 @@ export default defineEventHandler(async (event) => {
     );
   }
 
-
   const assistants_response = await openai.beta.threads.messages.list(
     thread.id
   );
   console.log(assistants_response);
-// it is necessary to return a response object that contains not only the response text, but also the thread id
   return {
       text: assistants_response.data[0].content[0].text.value,
       thread_id: thread.id,
   };
-
-//return assistants_response.data[0].content[0].text.value;
 
 });
