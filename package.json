@@ -24,6 +24,6 @@
   "dependencies": {
     "daisyui": "^4.4.12",
     "firebase": "^10.7.0",
-    "openai": "^4.20.0"
+    "openai": "^4.73.0"
   }
 }
